@@ -3,3 +3,7 @@
 ################################################################################
 
 /CrossvertiseCalendar.Tests/bin
+/packages
+/CrossvertiseCalendar.Tests/obj
+/CrossvertiseCalendar/bin
+/.vs/CrossvertiseCalendar/v15

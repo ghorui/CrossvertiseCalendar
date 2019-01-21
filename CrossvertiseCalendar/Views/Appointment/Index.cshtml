@@ -1,0 +1,74 @@
+﻿@model List<CrossvertiseCalendar.Models.CalendarEntry>
+
+@{
+    ViewBag.Title = "Appointment";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+    var appointment = Model.Where(m => m.Id.ToString() == ViewBag.appointmentId).FirstOrDefault();
+}
+
+<h2>Choose Your Month:</h2>
+
+<div class="col-lg-4">
+    <div class="span4" style="border: 1px solid black">
+        <span class="border">
+            <table class="table table-striped border border-dark">
+                <tbody>
+                    @foreach (var entry in Model)
+                    {
+                        <tr>
+                            <td>@entry.Date.ToString("MM/dd/yyyy hh:mm tt"): @Html.ActionLink(entry.Description, @entry.Id.ToString(), "Appointment")</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </span>
+    </div>
+</div>
+
+<div class="col-lg-4">
+    <div class="span4" style="border: 1px solid black">
+        <span class="border">
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => appointment.Description)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => appointment.Description)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => appointment.Date)
+                </dt>
+
+                <dd>
+                     @appointment.Date.ToString("MM/dd/yyyy hh:mm tt")
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => appointment.Organiser)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => appointment.Organiser)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => appointment.Attendees)
+                </dt>
+
+                <dd>
+                    @foreach (var att in appointment.Attendees)
+                    {
+                        @Html.DisplayFor(model => att)
+                        <br />
+                    }
+                </dd>
+
+            </dl>
+        </span>
+    </div>
+</div>
+<br />
+<br />
+<br />
+<br />

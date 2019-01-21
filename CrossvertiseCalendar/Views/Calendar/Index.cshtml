@@ -1,0 +1,42 @@
+﻿@model List<CrossvertiseCalendar.Models.CalendarEntry>
+@{
+    ViewBag.Title = "Choose Your Month:";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+<h2>@ViewBag.Title</h2>
+
+
+
+
+@if (ViewBag.check)
+{
+    <div class="col-lg-4">
+        <div class="span4" style="border: 1px solid black">
+            <span class="border">
+                <table class="table table-striped border border-dark">
+                    <tbody>
+
+                        @foreach (var entry in Model)
+                        {
+                            <tr>
+                                <td>@entry.Date.ToString("MM/dd/yyyy hh:mm tt"): @Html.ActionLink(entry.Description, @entry.Id.ToString(), "Appointment")</td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </span>
+        </div>
+    </div>
+}
+else
+{
+    <b>***No Appointments to display</b>
+}
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />

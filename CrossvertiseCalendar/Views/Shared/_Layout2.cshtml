@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Calendar", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse pull-right">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Calendar", "Index", "Calendar")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div style="border: 1px solid black">
+        <br />
+
+        <div class="shadow p-3 mb-5 bg-white rounded center-block" style="padding-left:10px">
+            <ul class="nav nav-pills">
+                <li class="list-group-item @ViewBag.selectJan">@Html.ActionLink("Jan", "1", "Calendar")</li>
+                <li class="list-group-item @ViewBag.selectFeb">@Html.ActionLink("Feb", "2", "Calendar")</li>
+                <li class="list-group-item @ViewBag.selectMar">@Html.ActionLink("Mar", "3", "Calendar")</li>
+                <li class="list-group-item @ViewBag.selectApr">@Html.ActionLink("Apr", "4", "Calendar")</li>
+                <li class="list-group-item @ViewBag.selectMay">@Html.ActionLink("May", "5", "Calendar")</li>
+                <li class="list-group-item @ViewBag.selectJun">@Html.ActionLink("Jun", "6", "Calendar")</li>
+                <li class="list-group-item @ViewBag.selectJul">@Html.ActionLink("Jul", "7", "Calendar")</li>
+                <li class="list-group-item @ViewBag.selectAug">@Html.ActionLink("Aug", "8", "Calendar")</li>
+                <li class="list-group-item @ViewBag.selectSep">@Html.ActionLink("Sep", "9", "Calendar")</li>
+                <li class="list-group-item @ViewBag.selectOct">@Html.ActionLink("Oct", "10", "Calendar")</li>
+                <li class="list-group-item @ViewBag.selectNov">@Html.ActionLink("Nov", "11", "Calendar")</li>
+                <li class="list-group-item @ViewBag.selectDec">@Html.ActionLink("Dec", "12", "Calendar")</li>
+            </ul>
+        </div>
+        <div class="container body-content">
+            @RenderBody()
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+
+        </div>
+    </div>
+    <footer>
+        <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+    </footer>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
